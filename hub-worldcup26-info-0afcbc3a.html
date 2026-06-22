@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub World Cup 26 · 世界杯信息平台</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f2f8fa;
+            color: #1a2e3a;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* hero */
+        .hero {
+            background: linear-gradient(145deg, #d9eed9 0%, #b8d9d4 100%);
+            padding: 60px 20px 50px;
+            text-align: center;
+            border-radius: 0 0 48px 48px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0,60,70,0.08);
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #0e3b49;
+            margin-bottom: 18px;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 640px;
+            margin: 0 auto 28px;
+            color: #1f4a57;
+        }
+        .hero .sub {
+            display: inline-block;
+            background: rgba(255,255,255,0.65);
+            backdrop-filter: blur(2px);
+            padding: 10px 22px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #0b4b5a;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        /* 优势区 — 网格卡片 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 40px 0 50px;
+        }
+        .feature-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 28px 18px 24px;
+            box-shadow: 0 4px 12px rgba(27, 93, 99, 0.06);
+            border: 1px solid #d4e8e6;
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,80,80,0.08);
+        }
+        .feature-card .icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #145b6b;
+            margin-bottom: 10px;
+        }
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #2b5f6b;
+        }
+
+        /* 说明区 */
+        .info-section {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 36px 30px;
+            margin: 30px 0 44px;
+            box-shadow: 0 6px 18px rgba(0,60,60,0.04);
+            border: 1px solid #d0e4e2;
+        }
+        .info-section h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #08424f;
+            margin-bottom: 20px;
+            border-left: 6px solid #2b9c9c;
+            padding-left: 18px;
+        }
+        .info-section p {
+            margin-bottom: 18px;
+            font-size: 1rem;
+            color: #1d4450;
+        }
+        .info-section p:last-child { margin-bottom: 0; }
+        .info-highlight {
+            background: #e7f3f0;
+            padding: 16px 22px;
+            border-radius: 20px;
+            margin: 24px 0 0;
+            font-size: 0.98rem;
+            color: #084a58;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #f3faf8;
+            border-radius: 28px;
+            padding: 30px 28px;
+            margin: 30px 0 40px;
+            border: 1px solid #bfdad6;
+        }
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0b4655;
+            margin-bottom: 20px;
+        }
+        .faq-item {
+            border-bottom: 1px solid #c7dfdb;
+            padding: 16px 0;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #105a68;
+            margin-bottom: 5px;
+        }
+        .faq-item p {
+            font-size: 0.95rem;
+            color: #1c4b56;
+            margin: 0;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            background: #e2f1ed;
+            border-radius: 32px 32px 0 0;
+            padding: 32px 24px 28px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer-links p {
+            font-size: 0.95rem;
+            color: #1f5663;
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: #1b798b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .footer-links a:hover {
+            border-bottom-color: #1b798b;
+        }
+        .footer-note {
+            font-size: 0.85rem;
+            color: #3c6e79;
+            margin-top: 16px;
+            letter-spacing: 0.2px;
+        }
+
+        /* 移动端 */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .hero { padding: 40px 16px 36px; }
+            .features-grid { gap: 16px; }
+            .info-section { padding: 24px 18px; }
+            .faq-summary { padding: 20px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="container">
+        <h1>Hub World Cup 26</h1>
+        <p>一个围绕 <strong>世界杯</strong> 赛事信息、赛程与文化的轻量聚合站点。不追噱头，只做可靠呈现。</p>
+        <span class="sub">⚽ 赛事数据 · 历史 · 动态 · 一站式浏览</span>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- 特点卡片 -->
+    <div class="features-grid">
+        <div class="feature-card">
+            <span class="icon">📋</span>
+            <h3>赛程与分组</h3>
+            <p>按时间线整理比赛日历，清晰展示小组对阵与淘汰赛阶段。</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon">🏆</span>
+            <h3>历届冠军</h3>
+            <p>从过往赛事中整理冠军、最佳射手与经典决赛数据。</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon">🌍</span>
+            <h3>主办城市</h3>
+            <p>汇集2026年美加墨世界杯的16个主办城市及球场简介。</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon">🔍</span>
+            <h3>简洁寻源</h3>
+            <p>所有信息标注参考来源，方便你进一步查阅官方资料。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：站点介绍与可信度 -->
+    <div class="info-section">
+        <h2>关于这个站点</h2>
+        <p>Hub World Cup 26 是一个非官方的世界杯信息页面，初衷是让感兴趣的朋友能在一个页面里快速触及赛事核心内容。站内收录了包括完整赛程、分组抽签结果、参赛球队简介以及历届纪录在内的常见资料。</p>
+        <p>内容主要整理自国际足联公开信息、各主办城市旅游局以及主流体育媒体的报道，每一条数据都经过交叉核对。由于世界杯筹备期间信息会持续更新，我们也保持与官方发布同步修正，因此建议你以 <a href="https://hub-worldcup26.com">世界杯</a> 页面展示的最新版本为准。</p>
+        <p>站点本身不涉及博彩或商业投注，也没有付费推广内容，纯粹作为一份便于查阅的赛事参考。如果你发现任何错误或过时信息，也可以通过页面底部的联系方式告知我们。</p>
+        <div class="info-highlight">
+            ⚡ 顺便提醒：2026年世界杯将扩军至48支球队，赛制、分组规则均有调整，建议在规划观赛行程前先确认官方细则。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h2>常见疑问 · 摘要</h2>
+        <div class="faq-item">
+            <strong>Hub World Cup 26 是官方平台吗？</strong>
+            <p>不是。它是由体育爱好者维护的资讯汇总站，与 FIFA 或组委会没有隶属关系。所有内容均标注来源。</p>
+        </div>
+        <div class="faq-item">
+            <strong>信息更新频率如何？</strong>
+            <p>重要节点（抽签、赛程发布、场馆变更）会在一周内更新；日常数据每月复核一次。</p>
+        </div>
+        <div class="faq-item">
+            <strong>移动端浏览体验怎么样？</strong>
+            <p>完全适配手机屏幕，卡片和列表重新排列，字体行距也做了优化，可以随时掏出手机查看。</p>
+        </div>
+        <div class="faq-item">
+            <strong>我可以转载站内内容吗？</strong>
+            <p>可以引用概述或数据片段，但建议同时附上原始来源链接。不建议大篇幅直接复制。</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- 底部链接 -->
+<div class="footer-links">
+    <div class="container">
+        <p>更多关于 <a href="https://hub-worldcup26.com">世界杯</a> 的赛程、球队与城市指南，可随时浏览主站。</p>
+        <p style="margin-top: 6px;">数据截止2025年4月 · 页面仅供信息参考</p>
+        <div class="footer-note">
+            &copy; 2025 hub-worldcup26.com &nbsp;·&nbsp; 非官方 · 仅供阅读
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
